@@ -31,9 +31,9 @@ export const addSet = () =>({
 
 
 const initialState = {
-    shoes: {},
-    pants: {},
-    shirt: {},
+    shoes: undefined,
+    pants: undefined,
+    shirt: undefined,
     setList : [],
     itemsList: undefined,
 };
@@ -58,7 +58,7 @@ export default (state = initialState, action) => {
                 pants : state.pants,
                 shirt : state.shirt,
             };
-            return {...state, setList: [...state.setList, set], shoes : {}, shirt: {}, pants: {}};
+            return {...state, setList: [...state.setList, set], shoes : undefined, shirt: undefined, pants: undefined};
         default:
             return state;
     

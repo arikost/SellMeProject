@@ -1,38 +1,21 @@
-import React, {useState,useEffect} from 'react';
-import { StyleSheet, Text, View, Pressable, Button} from "react-native";
-import {useSelector, useDispatch} from "react-redux";
-import { increment } from '../../redux/ducks/counter';
-import { getItems } from '../../redux/ducks/items';
-
+import React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import StartScreen from './StartScreen';
+import SelectPants from './SelectPants';
+import SelectShoes from './SelectShoes';
+import SelectShirt from './SelectShirts';
+const Drawear = createDrawerNavigator()
 const HomeScreen = ({navigation}) => {
-    const setStatus = useSelector((state) => state.counter.currentSetStetus);
-    const complatedSets = useSelector((state) => state.counter.total);
-    const dispatch = useDispatch();
-    useEffect(() => {
-      dispatch(getItems());
-    }, [dispatch]);
     return ( 
-        <View style={styles.container}>
-       
-          <Text style={styles.title}>{"Set Status: "+setStatus+"/3"}</Text>
-          <Text style={styles.title}>{"Complated Sets: "+complatedSets}</Text>
-        </View>
-     );
+        
+          <Drawear.Navigator >
+            <Drawear.Screen name="Start Screen" component={StartScreen}/>
+            <Drawear.Screen name="Select Shoes" component={SelectShoes}/>
+            <Drawear.Screen name="Select Pants" component={SelectPants}/>
+            <Drawear.Screen name="Select Shirt" component={SelectShirt}/>
+          </Drawear.Navigator>
+        
+    );
 }
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      padding: 24,
-    },
-    title: {
-      marginTop: 10,
-      paddingVertical: 8,
-      
-      color: "#20232a",
-      textAlign: "left",
-      fontSize: 20,
-      fontWeight: "bold"
-    }
-  });
   
 export default HomeScreen;
