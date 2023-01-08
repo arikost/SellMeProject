@@ -23,10 +23,9 @@ const App = () => {
   return (
       <Drawer.Navigator>
         <Drawer.Screen name='Application' component={HomeScreen}/>
-        <Drawer.Screen name='SelectShoes' component={SelectShoes}/>
-        <Drawer.Screen name='SelectPants' component={SelectPants}/>
-        <Drawer.Screen name='SelectShirts' component={SelectShirts}/>
-        <Drawer.Screen name='Success' component={Success}/>
+        <Drawer.Screen name='Select Shoes' component={SelectShoes}/>
+        <Drawer.Screen name='Select Pants' component={SelectPants}/>
+        <Drawer.Screen name='Select Shirts' component={SelectShirts}/>
       </Drawer.Navigator>
   );
 }
