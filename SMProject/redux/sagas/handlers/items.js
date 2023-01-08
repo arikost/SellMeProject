@@ -6,7 +6,8 @@ export function* handleGetItems(action){
     try{
         const response = yield call(requestItems);
         const {data} = response;
-        yield put(setItems(data));
+        // console.log("in handleGetItems:", data)
+        yield put(setItems(data.results));
     }catch(error){
         console.log(error);
     }

@@ -8,9 +8,9 @@ const SET_ITEMS = 'setItems';
 export const getItems = () =>({
     type: GET_ITEMS,
 });
-export const setItems = (items) =>({
+export const setItems = (itemsList) =>({
     type: SET_ITEMS,
-    items
+    itemsList
 });
 export const addShoes = (shoes) =>({
     type : ADD_SHOES,
@@ -35,14 +35,14 @@ const initialState = {
     pants: {},
     shirt: {},
     setList : [],
-    items: undefined,
+    itemsList: undefined,
 };
 
 export default (state = initialState, action) => {
-    switch(action){
+    switch(action.type){
         case SET_ITEMS:
-            const {items} = action;
-            return {...state, items}
+            const {itemsList} = action;
+            return {...state, itemsList}
         case ADD_SHOES:
             const {shoes} = action;
             return {...state, shoes};

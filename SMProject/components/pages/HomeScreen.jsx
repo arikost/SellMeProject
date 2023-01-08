@@ -1,11 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import { StyleSheet, Text, View, Pressable, Button} from "react-native";
 import {useSelector, useDispatch} from "react-redux";
 import { increment } from '../../redux/ducks/counter';
+import { getItems } from '../../redux/ducks/items';
 
 const HomeScreen = ({navigation}) => {
     const setStatus = useSelector((state) => state.counter.currentSetStetus);
     const complatedSets = useSelector((state) => state.counter.total);
+    const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(getItems());
+    }, [dispatch]);
     return ( 
         <View style={styles.container}>
        
